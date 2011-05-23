@@ -13,3 +13,7 @@ set background=dark " Dark background
 syntax on " Syntax highlighting
 
 set number " Line numbers
+
+set ruler
+
+set incsearch
