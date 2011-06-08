@@ -17,3 +17,5 @@ set number " Line numbers
 set ruler
 
 set incsearch
+
+set tags=./tags;/ " Search recursively for tag files

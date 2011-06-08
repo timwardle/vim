@@ -2,6 +2,9 @@
 
 thisDir=$(cd $(dirname "$0"); pwd)
 
+echo "Installing Exuberant Ctags..."
+sudo apt-get install -y exuberant-ctags
+
 echo "Backing up existing Vim config..."
 mv ~/.vimrc ~/.vimrc.backup
 
