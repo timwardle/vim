@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/users/tim/Web/protecinnovations.co.uk/public/blog/wp-content'
+let g:netrw_dirhist_2='/home/users/tim/Web/protecinnovations.co.uk/public/blog/wp-content/themes'
+let g:netrw_dirhist_3='/home/users/tim/Web/protecinnovations.co.uk/public/blog/wp-content/themes/protec'
+let g:netrw_dirhist_4='/home/users/tim/Web/phase-four'
+let g:netrw_dirhist_5='/home/users/tim/Web/phase-four/library'
+let g:netrw_dirhist_6='/home/users/tim/Web/phase-four/library/Protec'
+let g:netrw_dirhist_7='/home/users/tim/Web/phase-four/library/Protec/library'
+let g:netrw_dirhist_8='/home/users/tim/Web/phase-four/library/Protec/library/Protec'
+let g:netrw_dirhist_9='/home/users/tim/Web/phase-four/library/Protec/library/Protec/Model'
