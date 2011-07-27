@@ -26,3 +26,7 @@ set ruler
 set incsearch
 
 set tags=./tags;/ " Search recursively for tag files
+
+" Setup snippets
+filetype plugin on
+helptags ~/.vim/doc
