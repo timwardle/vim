@@ -31,4 +31,7 @@ set tags=./tags;/ " Search recursively for tag files
 
 " Setup snippets
 filetype plugin on
+
 helptags ~/.vim/doc
+
+let NERDTreeIgnore=['\.pyc$', '\~$']
