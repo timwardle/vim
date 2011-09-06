@@ -1,7 +1,6 @@
 snippet php
 	<?php
 	${1}
-	?>
 snippet ec
 	echo "${1:string}"${2};
 snippet inc
@@ -35,29 +34,29 @@ snippet $_ SESSION['...']
 snippet /*
 	/**
 	 * ${1}
-	 **/
+	 */
 # Class - post doc
 snippet doc_cp
-	/**
+	/*
 	 * ${1:undocumented class}
 	 *
 	 * @package ${2:default}
 	 * @author ${3:`g:snips_author`}
-	**/${4}
+	 */${4}
 # Class Variable - post doc
 snippet doc_vp
 	/**
 	 * ${1:undocumented class variable}
 	 *
 	 * @var ${2:string}
-	 **/${3}
+	 */${3}
 # Class Variable
 snippet doc_v
 	/**
 	 * ${3:undocumented class variable}
 	 *
 	 * @var ${4:string}
-	 **/
+	 */
 	${1:var} $${2};${5}
 # Class
 snippet doc_c
@@ -66,63 +65,39 @@ snippet doc_c
 	 *
 	 * @packaged ${4:default}
 	 * @author ${5:`g:snips_author`}
-	 **/
+	 */
 	${1:}class ${2:}
 	{${6}
 	} // END $1class $2
 # Constant Definition - post doc
 snippet doc_dp
-	/**
-	 * ${1:undocumented constant}
-	 **/${2}
 # Constant Definition
 snippet doc_d
 	/**
 	 * ${3:undocumented constant}
-	 **/
+	 */
 	define(${1}, ${2});${4}
-# Function - post doc
-snippet doc_fp
-	/**
-	 * ${1:undocumented function}
-	 *
-	 * @return ${2:void}
-	 * @author ${3:`g:snips_author`}
-	 **/${4}
-# Function signature
-snippet doc_s
-	/**
-	 * ${4:undocumented function}
-	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
-	 **/
-	${1}function ${2}(${3});${7}
 # Function
 snippet doc_f
 	/**
-	 * ${4:undocumented function}
-	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
-	 **/
-	${1}function ${2}(${3})
-	{${7}
-	}
+	 * ${1}
+	 * ${2}
+	 * @return ${3}
+	 */
 # Header
 snippet doc_h
 	/**
-	 * ${1}
-	 *
-	 * @author ${2:`g:snips_author`}
-	 * @version ${3:$Id$}
-	 * @copyright ${4:$2}, `strftime('%d %B, %Y')`
-	 * @package ${5:default}
-	 **/
+	 * @copyright Copyright (c) `strftime('%Y')`, Protec Innovations Ltd
+	 * @package ${1}
+	 * @subpackage ${2}
+	 */
 	
+	${3}
+# Document inherit from parent
+snippet doc_inherit
 	/**
-	 * Define DocBlock
-	 *//
+	 * @inheritdoc
+	 */
 # Interface
 snippet doc_i
 	/**
@@ -130,7 +105,7 @@ snippet doc_i
 	 *
 	 * @package ${3:default}
 	 * @author ${4:`g:snips_author`}
-	 **/
+	 */
 	interface ${1:}
 	{${5}
 	} // END interface $1
@@ -138,21 +113,82 @@ snippet doc_i
 snippet class
 	/**
 	 * ${1}
-	 **/
-	class ${2:ClassName}
-	{
-		${3}
-		function ${4:__construct}(${5:argument})
-		{
-			${6:// code...}
-		}
+	 */
+	class ${2:ClassName} {
+		${6:// code...}
 	}
-# define(...)
-snippet def
-	define('${1}'${2});${3}
-# defined(...)
-snippet def?
-	${1}defined('${2}')${3}
+# test case ...
+snippet class_test
+	class ${1:}Test extends ${2:Protec_Test_PHPUnit_TestCase} {
+	
+		/**
+		 * @var $1
+		 */
+		private $_${3:target};
+
+		public function setUp() {
+			parent::setUp();
+
+			$this->_$3 = new $1();
+		}
+
+		${4:// Tests...}
+	}
+# model test case...
+snippet class_test_model
+	class ${1:}Test extends Protec_Test_PHPUnit_ModelTestCase {
+		
+		protected function _getModelName() {
+			return '$1';
+		}
+
+		${2:// Tests...}
+	}
+
+# function...
+snippet fun
+	${1:public }function ${2:FunctionName}(${3}) {
+		${4:// code...}
+	}
+# getter and setter functions...
+snippet fun_get_set
+	/**
+	 * ${1:Returns the ${2:}}
+	 *
+	 * @return ${3:type}
+	 */
+	public function get${4:Property}() {
+		return $this->_${5:$4};
+	}
+
+	/**
+	 * ${6:Sets the $2}
+	 *
+	 * @param $${7:value} $3 ${8:}
+	 */
+	public function set$4($$7) {
+		$this->_$5 = $$7;
+	}
+
+	${8:}
+# tests for getter and setter functions...
+snippet test_get_set
+	public function testSet${1:Property}() {
+		$value = ${2};
+
+		$this->_${3:model}->set$1($value);
+
+		$result = $this->_$3->get$1();
+
+		$this->assertEquals($value, $result);
+	}
+
+	public function testGet$1() {
+		// testSet$1() is sufficient
+		$this->testSet$1();
+	}
+
+	${4}
 snippet wh
 	while (${1:/* condition */}) {
 		${2:// code...}
@@ -205,11 +241,6 @@ snippet for
 snippet foreach
 	foreach ($${1:variable} as $${2:key}) {
 		${3:// code...}
-	}
-snippet fun
-	${1:public }function ${2:FunctionName}(${3})
-	{
-		${4:// code...}
 	}
 # $... = array (...)
 snippet array
