@@ -9,6 +9,8 @@ set expandtab " Replace tabs with spaces
 set autoindent
 set smartindent
 
+set wildmenu
+
 set directory=~/.vim/tmp " Directory to place swap files in
 
 set t_Co=256
