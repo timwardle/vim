@@ -11,7 +11,8 @@ mv ~/.vimrc ~/.vimrc.backup
 echo "Linking to new Vim config..."
 ln -s $thisDir/vimrc ~/.vimrc
 
-echo "Linking colour schemes..."
+echo "Linking Vim files..."
 ln -s $thisDir/vim ~/.vim
+mkdir $thisDir/vim/tmp
 
 echo "Vim config installed"
