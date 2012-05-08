@@ -27,6 +27,8 @@ set number " Line numbers
 
 set ruler
 
+set ls=2 " Show a status line even when only one window is open
+
 set incsearch
 set hlsearch " Highlight search results
 
