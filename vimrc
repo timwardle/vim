@@ -40,3 +40,5 @@ filetype plugin on
 helptags ~/.vim/doc
 
 let NERDTreeIgnore=['\.pyc$', '\~$']
+
+:nmap <F4> :retab<CR>:%s/\s\+$//e<CR>:%s/if(/if (/ge<CR>:%s/while(/while (/ge<CR>:%s/foreach(/foreach (/ge<CR>:%s/for(/for (/ge<CR>:%s/){/) {/ge<CR>:%s/}else/} else/ge<CR>:%s/else{/else {/ge<CR>:%s/<?=/<?php echo /ge<CR>:%s/NULL/null/ge<CR>:%s/FALSE/false/ge<CR>:%s/TRUE/true/ge<CR>:%s/<?\([^p]\)/<?php \1/ge<CR>:%s/<?$/<?php/ge<CR>
