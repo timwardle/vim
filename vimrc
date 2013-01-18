@@ -27,6 +27,8 @@ set number " Line numbers
 
 set ruler
 
+set ls=2 " Show a status line even when only one window is open
+
 set incsearch
 set hlsearch " Highlight search results
 
@@ -40,3 +42,5 @@ helptags ~/.vim/doc
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
 au BufNewFile,BufRead *.less set filetype=less
+
+:nmap <F4> :retab<CR>:%s/\s\+$//e<CR>:%s/if(/if (/ge<CR>:%s/while(/while (/ge<CR>:%s/foreach(/foreach (/ge<CR>:%s/for(/for (/ge<CR>:%s/){/) {/ge<CR>:%s/}else/} else/ge<CR>:%s/else{/else {/ge<CR>:%s/<?=/<?php echo /ge<CR>:%s/NULL/null/ge<CR>:%s/FALSE/false/ge<CR>:%s/TRUE/true/ge<CR>:%s/<?\([^p]\)/<?php \1/ge<CR>:%s/<?$/<?php/ge<CR>
