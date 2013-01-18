@@ -38,3 +38,5 @@ filetype plugin on
 helptags ~/.vim/doc
 
 let NERDTreeIgnore=['\.pyc$', '\~$']
+
+au BufNewFile,BufRead *.less set filetype=less
